@@ -8,12 +8,14 @@ object ApplicationBuild extends Build {
   val appVersion      = "0.1.0"
 
   val appDependencies = Seq(
-      // Add dependencies here
+      // LTG Event Handler
+      "ltg" % "ltg-java-event-handler" % "1.5"
   )
 
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    // Add your own project settings here      
+      //Adding local Maven repository
+      resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository"
   )
 
 }
