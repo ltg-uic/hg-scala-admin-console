@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>HG Admin</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/x-icon" href="@routes.Assets.at("images/favicon.ico")">
+    </head>
+    <body>
+    	<h1>Admin console for run 5ag (still hardcoded)</h1>
+    	<div id="commands">
+    		<p>Clicking one of the following buttons will generate the corresponding event</p>
+    		<button id="start_bout">Start bout</button>
+    		<button id="stop_bout">Stop bout</button>
+    		<button id="reset_bout">Reset bout</button>
+    		<button id="pause_bout">Pause bout</button>
+    		<button id="resume_bout">Resume bout</button>
+    	</div>
+        
+        <!-- Scripts -->
+        <script src="@routes.Assets.at("javascripts/jquery-2.0.3.js")"></script>
+        <script src="@routes.Assets.at("javascripts/websockets.js")"></script>
+        <script src="@routes.Assets.at("javascripts/admin-console.js")"></script>
+    </body>
+</html>
