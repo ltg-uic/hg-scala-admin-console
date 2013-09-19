@@ -27,6 +27,6 @@ function onMessageReceived(evt) {
 	console.debug(evt.data)
 }
 
-function sendMessage(message) {
-	websocket.send(message);
+function sendMessage(json) {
+	websocket.send(JSON.stringify(json));
 }
