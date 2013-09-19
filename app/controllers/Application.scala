@@ -21,7 +21,7 @@ object Application extends Controller {
 	  val e  = new LTGEvent("random_event", null, null, JsonNodeFactory.instance.objectNode() )
 	  
 	  val in = Iteratee.foreach[String] { msg =>
-	    EventHandler.sendEventTo("5ag", e)
+	    //EventHandler.sendEventTo("5ag", e)
 	    println(msg)
 	  }
 

@@ -5,17 +5,31 @@ package util
 
 import ltg.commons.ltg_handler.LTGEventHandler
 import ltg.commons.ltg_handler.LTGEvent
+import ltg.commons.ltg_handler.LTGEventListener
+import com.typesafe.config.Config
+import com.typesafe.config.ConfigFactory
+import play.Configuration
+import play.api.Play
+import java.util.List
 
 /**
  * @author tebemis
  *
  */
 object EventHandler {
-  private val host : String = "ltg.evl.uic.edu"
-  private val conference : String = "conference."+host;
+  val conf = ConfigFactory.load
+  var eh: LTGEventHandler = null;
   
-  private val p1 = new LTGEventHandler("hg-bots#admin-console@"+host,"hg-bots#admin-console","5ag@"+conference);
+  def init() { 
+    
+    eh = new LTGEventHandler(
+      Play.current.configuration.getString("xmpp.username").get,
+      Play.current.configuration.getString("xmpp.password").get,
+      Play.current.configuration.getStringList("xmpp.chatrooms").get
+      );
+    
+  }
   
-  def sendEventTo(chatroom: String, event:LTGEvent) = p1.generateEvent(event);
-
+  def shutdown() = eh.close
+  
 }
