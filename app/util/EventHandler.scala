@@ -17,17 +17,15 @@ import java.util.List
  *
  */
 object EventHandler {
-  val conf = ConfigFactory.load
+  
   var eh: LTGEventHandler = null;
   
   def init() { 
-    
     eh = new LTGEventHandler(
       Play.current.configuration.getString("xmpp.username").get,
       Play.current.configuration.getString("xmpp.password").get,
       Play.current.configuration.getStringList("xmpp.chatrooms").get
       );
-    
   }
   
   def shutdown() = eh.close
