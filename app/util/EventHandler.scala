@@ -18,16 +18,17 @@ import java.util.List
  */
 object EventHandler {
   
-  var eh: LTGEventHandler = null;
+  var handler: LTGEventHandler = null;
   
   def init() { 
-    eh = new LTGEventHandler(
+    handler = new LTGEventHandler(
       Play.current.configuration.getString("xmpp.username").get,
       Play.current.configuration.getString("xmpp.password").get,
       Play.current.configuration.getStringList("xmpp.chatrooms").get
       );
+    handler.runAsynchronously();
   }
   
-  def shutdown() = eh.close
+  def shutdown() = handler.close
   
 }

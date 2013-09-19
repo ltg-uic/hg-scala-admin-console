@@ -9,7 +9,7 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
       // LTG Event Handler
-      "ltg" % "ltg-java-event-handler" % "2.0.0-alpha"
+      "ltg" % "ltg-java-event-handler" % "2.0.0-alpha1"
   )
 
 

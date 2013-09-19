@@ -7,6 +7,10 @@ import play.api.libs.iteratee.Enumerator
 import ltg.commons.ltg_handler.LTGEvent
 import com.fasterxml.jackson.databind.node.JsonNodeFactory
 import util.EventHandler
+import ltg.commons.ltg_handler.LTGEventListener
+import play.api.libs.json.JsValue
+import ltg.commons.ltg_handler.LTGEventHandler
+import play.api.libs.iteratee.Concurrent
 
 object Application extends Controller {
 
@@ -15,21 +19,27 @@ object Application extends Controller {
 		Ok(views.html.index())
 	}
 
+	
 	// Websockets
 	def websockets = WebSocket.using[String] { request =>
 	  
-	  val e  = new LTGEvent("random_event", null, null, JsonNodeFactory.instance.objectNode() )
-	  
-	  val in = Iteratee.foreach[String] { msg =>
-	    EventHandler.eh.generateEvent("5ag", e)
-	    println(msg)
+	  //In channel
+	  val in = Iteratee.foreach[String] { json =>
+	    //EventHandler.handler.generateEvent("5ag", LTGEventHandler.deserializeEvent(json))
+	    println(json)
 	  }
-
-	  val out = Enumerator("Hello!")
-	  // TODO register handlers to push with XMPP
 	  
+	  //Out channel
+	  val (out, channel) = Concurrent.broadcast[String]
+	  
+	  // Register event handler 
+	  EventHandler.handler.registerHandler(".*", new LTGEventListener {
+		def processEvent(e:LTGEvent) = {
+			channel.push(e.toString())
+		}
+	  })
+	  
+	  // Return
 	  (in, out)
-
 	}
-
 }
