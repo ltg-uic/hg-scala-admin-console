@@ -3,6 +3,7 @@
  */
 
 $( document ).ready(function() {
+	
 	// Setup callbacks for buttons
 	$("#start_bout").click(function() {
 		sendMessage({ "run_id": "5ag", "ltg_event": { "event": "start_bout", "payload": {} } })
@@ -20,5 +21,6 @@ $( document ).ready(function() {
 		sendMessage({ "run_id": "5ag", "ltg_event": { "event": "resume_bout", "payload": {} } })
 	});
 
+	// Connect Websockets
 	connectWebsockets()
 });

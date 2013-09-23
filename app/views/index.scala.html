@@ -1,26 +1,53 @@
-
+@(bouts: java.util.List[String])
 <!DOCTYPE html>
 
 <html>
     <head>
         <title>HG Admin</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("bootstrap/css/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("bootstrap/css/bootstrap-theme.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/x-icon" href="@routes.Assets.at("images/favicon.ico")">
     </head>
     <body>
-    	<h1>Admin console for run 5ag (still hardcoded)</h1>
-    	<div id="commands">
-    		<p>Clicking one of the following buttons will generate the corresponding event</p>
-    		<button id="start_bout">Start bout</button>
-    		<button id="stop_bout">Stop bout</button>
-    		<button id="reset_bout">Reset bout</button>
-    		<button id="pause_bout">Pause bout</button>
-    		<button id="resume_bout">Resume bout</button>
+    	
+    	<!-- Bootstrap Navbar -->
+    	<div class="navbar navbar-default navbar-fixed-top">
+      		<div class="container">
+        		<div class="navbar-header">
+          			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+          			</button>
+          			<a class="navbar-brand" href="#">Hunger Games Admin Console</a>
+        		</div>
+        		<div class="navbar-collapse collapse">
+          			<ul class="nav navbar-nav">
+            			<li class="dropdown">
+              				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select bout... <b class="caret"></b></a>
+              				<ul id="bout_dropdown" class="dropdown-menu">
+							@for(b <- bouts) {
+								<li><a href="#">@b.split("@")(0).toUpperCase()</a></li>
+							} 
+              				</ul>
+            			</li>
+          			</ul>
+        		</div><!--/.nav-collapse -->
+      		</div>
     	</div>
-        
-        <!-- Scripts -->
+    	<!-- End of Bootstrap Navbar -->
+    	
+    	<!-- 
+    	<div class="container">
+		</div>
+		 -->
+		
+		<!-- Scripts -->
         <script src="@routes.Assets.at("javascripts/jquery-2.0.3.js")"></script>
         <script src="@routes.Assets.at("javascripts/websockets.js")"></script>
         <script src="@routes.Assets.at("javascripts/admin-console.js")"></script>
+        <script src="@routes.Assets.at("bootstrap/js/bootstrap.js")"></script>
+    	
     </body>
 </html>

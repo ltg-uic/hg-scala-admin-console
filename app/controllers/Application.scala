@@ -16,7 +16,7 @@ object Application extends Controller {
 
 	// Index
 	def index = Action {
-		Ok(views.html.index())
+		Ok(views.html.index(Play.current.configuration.getStringList("xmpp.chatrooms").get))
 	}
 
 	
