@@ -5,11 +5,11 @@ import play.Project._
 object ApplicationBuild extends Build {
 
   val appName         = "hg-scala-admin-console"
-  val appVersion      = "0.1.0"
+  val appVersion      = "0.2.0"
 
   val appDependencies = Seq(
       // LTG Event Handler
-      "ltg" % "ltg-java-event-handler" % "2.0.0-alpha2"
+      "ltg" % "ltg-java-event-handler" % "2.0.0-beta1"
   )
 
 

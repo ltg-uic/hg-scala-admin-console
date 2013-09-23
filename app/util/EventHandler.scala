@@ -3,14 +3,11 @@
  */
 package util
 
-import ltg.commons.ltg_handler.LTGEventHandler
-import ltg.commons.ltg_handler.LTGEvent
-import ltg.commons.ltg_handler.LTGEventListener
-import com.typesafe.config.Config
-import com.typesafe.config.ConfigFactory
+import java.util.List
+
+import ltg.commons.ltg_event_handler.MultiChatLTGEventHandler
 import play.Configuration
 import play.api.Play
-import java.util.List
 
 /**
  * @author tebemis
@@ -18,17 +15,17 @@ import java.util.List
  */
 object EventHandler {
   
-  var handler: LTGEventHandler = null;
+  var handler: MultiChatLTGEventHandler = null;
   
   def init() { 
-    handler = new LTGEventHandler(
+    handler = new MultiChatLTGEventHandler(
       Play.current.configuration.getString("xmpp.username").get,
       Play.current.configuration.getString("xmpp.password").get,
       Play.current.configuration.getStringList("xmpp.chatrooms").get
       );
-    handler.runAsynchronously();
+    handler.runAsynchronously;
   }
   
-  def shutdown() = handler.close
+  def shutdown() = handler.shutdown
   
 }
