@@ -24,7 +24,7 @@ function connectWebsockets() {
 
 
 function onMessageReceived(evt) {
-	console.debug(evt.data)
+	$('#debug_console').append(evt.data+"<br/>")
 }
 
 function sendMessage(json) {

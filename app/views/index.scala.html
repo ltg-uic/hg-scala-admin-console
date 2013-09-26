@@ -26,28 +26,60 @@
           			<ul class="nav navbar-nav">
             			<li class="dropdown">
               				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select bout... <b class="caret"></b></a>
-              				<ul id="bout_dropdown" class="dropdown-menu">
+              				<ul class="dropdown-menu">
 							@for(b <- bouts) {
 								<li><a href="#">@b.split("@")(0).toUpperCase()</a></li>
 							} 
               				</ul>
             			</li>
+						<li><a id="current_bout" href="#"></a></li>
           			</ul>
         		</div><!--/.nav-collapse -->
       		</div>
     	</div>
     	<!-- End of Bootstrap Navbar -->
     	
-    	<!-- 
+
     	<div class="container">
+		    
+			<!-- Commands component -->
+			<div id="commands" class="panel panel-default">
+				<div class="panel-heading">
+			    	<h3 class="panel-title">Run commands</h3>
+			  	</div>
+			  	<div class="panel-body">
+					<p>Clicking one of the following buttons to generate the corresponding event</p>
+  					<button type="button" class="btn btn-success" id="start_bout">Start bout</button>
+  					<button type="button" class="btn btn-warning" id="stop_bout">Stop bout</button>
+  					<button type="button" class="btn btn-danger" id="reset_bout">Reset bout</button>
+  					<!-- <button type="button" class="btn btn-default" id="pause_bout">Pause bout</button>
+  					<button type="button" class="btn btn-default" id="resume_bout">Resume bout</button> -->
+			  	</div>
+			</div>
+		    		
+		    <!-- Debug component -->
+		     <div id="debug" class="panel panel-default">
+ 				<div class="panel-heading">
+ 			    	<h3 class="panel-title">Grour chat feed</h3>
+ 			  	</div>
+				<div class="panel-body">
+					<div id="debug_console"/>
+		    	</div>
+		    </div>    
 		</div>
-		 -->
+
 		
 		<!-- Scripts -->
         <script src="@routes.Assets.at("javascripts/jquery-2.0.3.js")"></script>
-        <script src="@routes.Assets.at("javascripts/websockets.js")"></script>
-        <script src="@routes.Assets.at("javascripts/admin-console.js")"></script>
+        <script src="@routes.Assets.at("javascripts/json2.js")"></script>
         <script src="@routes.Assets.at("bootstrap/js/bootstrap.js")"></script>
+		<script src="@routes.Assets.at("javascripts/underscore-1.5.2.js")"></script>
+		<script src="@routes.Assets.at("javascripts/backbone-1.0.0.js")"></script>
+		<script src="@routes.Assets.at("javascripts/backbone.localStorage-1.1.6.js")"></script>
+		
+		<script src="@routes.Assets.at("javascripts/websockets.js")"></script>
+        <script src="@routes.Assets.at("javascripts/admin-console.js")"></script>
+		
     	
     </body>
-</html>
+</html></em>

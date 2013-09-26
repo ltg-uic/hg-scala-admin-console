@@ -1,0 +1,7 @@
+body { 
+    padding-top: 65px; 
+}
+
+#debug_console { 
+	font-family: monospace;
+}
