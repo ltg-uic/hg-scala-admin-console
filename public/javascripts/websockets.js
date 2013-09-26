@@ -24,7 +24,8 @@ function connectWebsockets() {
 
 
 function onMessageReceived(evt) {
-	$('#debug_console').append(evt.data+"<br/>")
+	if (JSON.parse(evt.data).run_id==run_id)
+		$('#debug_console').prepend(evt.data+"\n")
 }
 
 function sendMessage(json) {

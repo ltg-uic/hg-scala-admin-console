@@ -11,9 +11,10 @@ $(	function() {
 	
 	// Adds a listener to the drop down bout menu
 	$('.dropdown-menu a').click( function () {
+		if ($(this).text().toLowerCase() != run_id)
+			$('#debug_console').empty()
 	    run_id = $(this).text().toLowerCase()
-		$('#current_bout').text($(this).text())
-		
+		$('#current_run').text($(this).text())
 	});
 	
 	// Setup callbacks for the command buttons

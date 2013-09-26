@@ -1,4 +1,4 @@
-@(bouts: java.util.List[String])
+@(runs: java.util.List[String])
 <!DOCTYPE html>
 
 <html>
@@ -25,14 +25,14 @@
         		<div class="navbar-collapse collapse">
           			<ul class="nav navbar-nav">
             			<li class="dropdown">
-              				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select bout... <b class="caret"></b></a>
+              				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select run... <b class="caret"></b></a>
               				<ul class="dropdown-menu">
-							@for(b <- bouts) {
+							@for(b <- runs) {
 								<li><a href="#">@b.split("@")(0).toUpperCase()</a></li>
 							} 
               				</ul>
             			</li>
-						<li><a id="current_bout" href="#"></a></li>
+						<li><a id="current_run" href="#">No run selected</a></li>
           			</ul>
         		</div><!--/.nav-collapse -->
       		</div>
@@ -63,7 +63,7 @@
  			    	<h3 class="panel-title">Grour chat feed</h3>
  			  	</div>
 				<div class="panel-body">
-					<div id="debug_console"/>
+					<pre class="pre-scrollable" id="debug_console" />
 		    	</div>
 		    </div>    
 		</div>
