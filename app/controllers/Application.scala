@@ -1,16 +1,17 @@
 package controllers
 
 import ltg.commons.ltg_event_handler.LTGEvent
-import play.api._
-import play.api.libs.iteratee.Concurrent
-import play.api.libs.iteratee.Enumerator
-import play.api.libs.iteratee.Iteratee
-import play.api.libs.json.JsResult
-import play.api.libs.json.JsValue
-import play.api.mvc._
-import util.EventHandler
 import ltg.commons.ltg_event_handler.MultiChatLTGEventListener
+import play.api.Play
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.libs.iteratee.Concurrent
+import play.api.libs.iteratee.Iteratee
+import play.api.libs.json.JsValue
 import play.api.libs.json.Json
+import play.api.mvc.Action
+import play.api.mvc.Controller
+import play.api.mvc.WebSocket
+import util.EventHandler
 
 object Application extends Controller {
 
