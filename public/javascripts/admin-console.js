@@ -19,16 +19,26 @@ $(	function() {
 	
 	// Setup callbacks for the command buttons
 	$("#start_bout").click(function() {
-		if (typeof run_id !== "undefined")
-			sendMessage({ "run_id": run_id, "ltg_event": { "event": "start_bout", "payload": {} } })
+		if (typeof run_id !== "undefined") {
+			var current_habitat = $("input[name='habitat_sel']:checked").val()
+			var current_bout = $("input[name='bout_sel']:checked").val()
+			if (typeof current_habitat !== "undefined" && typeof current_bout !== "undefined")
+				sendMessage({ "run_id": run_id, "ltg_event": { "event": "start_bout", "payload": { "habitat_configuration_id": current_habitat, "bout_id": current_bout } } })
+		}
 	});
 	$("#stop_bout").click(function() {
 		if (typeof run_id !== "undefined")
-			sendMessage({ "run_id": run_id, "ltg_event": { "event": "stop_bout", "payload": {} } })
+			var current_habitat = $("input[name='habitat_sel']:checked").val()
+			var current_bout = $("input[name='bout_sel']:checked").val()
+			if (typeof current_habitat !== "undefined" && typeof current_bout !== "undefined")
+				sendMessage({ "run_id": run_id, "ltg_event": { "event": "stop_bout", "payload": { "habitat_configuration_id": current_habitat, "bout_id": current_bout } } })
 	});
 	$("#reset_bout").click(function() {
 		if (typeof run_id !== "undefined")
-			sendMessage({ "run_id": run_id, "ltg_event": { "event": "reset_bout", "payload": { "habitat_configuration_id": "gameon", "bout_id": "1" } } })
+			var current_habitat = $("input[name='habitat_sel']:checked").val()
+			var current_bout = $("input[name='bout_sel']:checked").val()
+			if (typeof current_habitat !== "undefined" && typeof current_bout !== "undefined")
+			sendMessage({ "run_id": run_id, "ltg_event": { "event": "reset_bout", "payload": {  "habitat_configuration_id": current_habitat, "bout_id": current_bout  } } })
 	});
 
 	// Connect Websockets
