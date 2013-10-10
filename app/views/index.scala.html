@@ -49,24 +49,19 @@
 			  	</div>
 			  	<div class="panel-body">
 					<p>Use the following buttons to generate the corresponding event</p>
-					<div class="btn-group" data-toggle="buttons">
-  					  	<label class="btn btn-default"><input type="radio" name="habitat_sel" value="gameon">gameon</label>
-  					  	<label class="btn btn-default"><input type="radio" name="habitat_sel" value="predation">predation</label>
+					<div class="row">
+						<div class="btn-group" data-toggle="buttons">
+  					  		<label class="btn btn-default"><input type="radio" name="habitat_sel" value="gameon">gameon</label>
+  					  		<label class="btn btn-default"><input type="radio" name="habitat_sel" value="predation">predation</label>
+						</div>
+						<div class="col-lg-1">
+							<input id="bout_id" type="text" class="form-control" placeholder="Bout #">
+						</div>		
+  						<button type="button" class="btn btn-success" id="start_bout">Start bout</button>
+  						<button type="button" class="btn btn-warning" id="stop_bout">Stop bout</button>
+  						<button type="button" class="btn btn-danger" id="reset_bout">Reset bout</button>
 					</div>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-default"><input type="radio" name="bout_sel" value="test">test</label>
-					  	<label class="btn btn-default"><input type="radio" name="bout_sel" value="1">1</label>
-					  	<label class="btn btn-default"><input type="radio" name="bout_sel" value="2">2</label>
-					</div>
-  					<button type="button" class="btn btn-success" id="start_bout">Start bout</button>
-  					<button type="button" class="btn btn-warning" id="stop_bout">Stop bout</button>
-  					<button type="button" class="btn btn-danger" id="reset_bout">Reset bout</button>
-  					<!-- <button type="button" class="btn btn-default" id="pause_bout">Pause bout</button> -->
 			  	</div>
-				<!-- <div class="alert alert-danger alert-dismissable">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					Can't submitt!
-				</div> -->
 			</div>
 		    		
 		    <!-- Debug component -->
