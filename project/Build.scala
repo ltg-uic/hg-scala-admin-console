@@ -15,7 +15,8 @@ object ApplicationBuild extends Build {
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
       //Adding local Maven repository
-      resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository"
+      //resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository"
+	  resolvers += "LTG Artifactory Repository" at "http://ltg.evl.uic.edu:8081/artifactory/repo"
   )
 
 }
