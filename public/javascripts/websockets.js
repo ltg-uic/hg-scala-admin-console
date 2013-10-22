@@ -2,7 +2,7 @@
  * This takes care of handling Websockets
  */
 
-var wsUri = "ws://localhost:9000/websockets";
+var wsUri = "ws://ltg.evl.uic.edu/hg-admin/websockets";
 
 function connectWebsockets() {
 	// Setup websockets
