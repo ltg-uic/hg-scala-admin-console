@@ -25,14 +25,13 @@
         		<div class="navbar-collapse collapse">
           			<ul class="nav navbar-nav">
             			<li class="dropdown">
-              				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select run... <b class="caret"></b></a>
-              				<ul class="dropdown-menu">
+              				<a id="run_id_a" href="#" class="dropdown-toggle" data-toggle="dropdown">Select run... <b class="caret"></b></a>
+              				<ul id="run_id_dropdown" class="dropdown-menu">
 							@for(b <- runs) {
 								<li><a href="#">@b.split("@")(0).toUpperCase()</a></li>
 							} 
               				</ul>
             			</li>
-						<li><a id="current_run" href="#">No run selected</a></li>
           			</ul>
         		</div><!--/.nav-collapse -->
       		</div>
@@ -55,7 +54,7 @@
   					  		<label class="btn btn-default"><input type="radio" name="habitat_sel" value="predation">predation</label>
 						</div>
 						<div class="col-lg-1">
-							<input id="bout_id" type="text" class="form-control" placeholder="Bout #">
+							<input id="bout_id" type="text" class="form-control" placeholder="Bout">
 						</div>		
   						<button type="button" class="btn btn-success" id="start_bout">Start bout</button>
   						<button type="button" class="btn btn-warning" id="stop_bout">Stop bout</button>
@@ -63,7 +62,48 @@
 					</div>
 			  	</div>
 			</div>
-		    		
+			
+			<!-- Simulator commands component -->
+			<div id="simulator_commands" class="panel panel-default">
+				<div class="panel-heading">
+			    	<h3 class="panel-title">Simulator commands</h3>
+			  	</div>
+			  	<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-1">
+							<input id="tag_id" type="text" class="form-control" placeholder="TagID">	
+						</div>		
+						<div class="btn-group">
+						  <button id="departure_btn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						    Departure <span class="caret"></span>
+						  </button>
+						  <ul id="departure_dropdown" class="dropdown-menu" role="menu">
+						    <li><a href="#">patch-a</a></li>
+						    <li><a href="#">patch-b</a></li>
+						    <li><a href="#">patch-c</a></li>
+						    <li><a href="#">patch-d</a></li>
+						    <li><a href="#">patch-e</a></li>
+						    <li><a href="#">patch-f</a></li>
+						  </ul>
+						</div>
+						<div class="btn-group">
+						  <button id="arrival_btn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						    Arrival <span class="caret"></span>
+						  </button>
+						  <ul id="arrival_dropdown" class="dropdown-menu" role="menu">
+						    <li><a href="#">patch-a</a></li>
+						    <li><a href="#">patch-b</a></li>
+						    <li><a href="#">patch-c</a></li>
+						    <li><a href="#">patch-d</a></li>
+						    <li><a href="#">patch-e</a></li>
+						    <li><a href="#">patch-f</a></li>
+						  </ul>
+						</div>
+  						<button type="button" class="btn btn-primary" id="move_btn">Move</button>
+					</div>
+			  	</div>
+			</div>
+					
 		    <!-- Debug component -->
 		     <div id="debug" class="panel panel-default">
  				<div class="panel-heading">
@@ -74,7 +114,7 @@
 		    	</div>
 		    </div>    
 		</div>
-
+		
 		
 		<!-- Scripts -->
         <script src="@routes.Assets.at("javascripts/jquery-2.0.3.js")"></script>
