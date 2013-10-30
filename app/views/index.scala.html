@@ -70,9 +70,33 @@
 			  	</div>
 			  	<div class="panel-body">
 					<div class="row">
-						<div class="col-lg-1">
-							<input id="tag_id" type="text" class="form-control" placeholder="TagID">	
-						</div>		
+						<div class="btn-group">
+						  <button id="tag_btn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						    Tag <span class="caret"></span>
+						  </button>
+						  <ul id="tag_dropdown" class="dropdown-menu" role="menu">
+							<li><a href="#">arg</a></li>
+							<li><a href="#">baf</a></li>
+							<li><a href="#">boz</a></li>
+							<li><a href="#">dob</a></li>
+							<li><a href="#">fot</a></li>
+							<li><a href="#">gub</a></li>
+							<li><a href="#">hap</a></li>
+							<li><a href="#">jur</a></li>
+							<li><a href="#">kep</a></li>
+							<li><a href="#">mid</a></li>
+							<li><a href="#">nar</a></li>
+							<li><a href="#">pab</a></li>
+							<li><a href="#">pha</a></li>
+							<li><a href="#">ren</a></li>
+							<li><a href="#">som</a></li>
+							<li><a href="#">sug</a></li>
+							<li><a href="#">tuz</a></li>
+							<li><a href="#">wat</a></li>
+							<li><a href="#">wir</a></li>
+							<li><a href="#">yim</a></li>  
+						  </ul>
+						</div>	
 						<div class="btn-group">
 						  <button id="departure_btn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 						    Departure <span class="caret"></span>
@@ -102,6 +126,8 @@
 						  </ul>
 						</div>
   						<button type="button" class="btn btn-primary" id="move_btn">Move</button>
+						<button type="button" class="btn btn-primary" id="kill_btn">Kill</button>
+						<button type="button" class="btn btn-primary" id="resurrect_btn">Resurrect</button>
 					</div>
 			  	</div>
 			</div>
@@ -109,7 +135,7 @@
 		    <!-- Debug component -->
 		     <div id="debug" class="panel panel-default">
  				<div class="panel-heading">
- 			    	<h3 class="panel-title">Grour chat feed</h3>
+ 			    	<h3 class="panel-title">Group chat feed</h3>
  			  	</div>
 				<div class="panel-body">
 					<pre class="pre-scrollable" id="debug_console" />

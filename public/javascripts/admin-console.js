@@ -20,7 +20,11 @@ $(	function() {
 	    run_id = $(this).text().toLowerCase()
 		$('#run_id_a').html($(this).text()+'<b class="caret"></b>')
 	});
-	// Adds a listener to the departure and arrivals dropdowns
+	// Adds a listener to the tag, departure and arrivals dropdowns
+	$('#tag_dropdown a').click( function () {
+	    tag = $(this).text()
+		$('#tag_btn').html( $(this).text() + ' <span class="caret"></span>')
+	});
 	$('#departure_dropdown a').click( function () {
 	    departure = $(this).text()
 		$('#departure_btn').html( $(this).text() + ' <span class="caret"></span>')
@@ -54,7 +58,6 @@ $(	function() {
 			sendMessage({ "run_id": run_id, "ltg_event": { "event": "reset_bout", "payload": {  "habitat_configuration_id": current_habitat, "bout_id": current_bout  } } })
 	});
 	$("#move_btn").click(function() {
-		tag = $('#tag_id').val()
 		if (typeof run_id !== "undefined" && typeof departure !== "undefined" && typeof arrival !== "undefined" && typeof tag !== "undefined") {
 			if (departure != arrival) {
 				var dep;
@@ -63,6 +66,16 @@ $(	function() {
 				if (arrival=='null') arr = null; else arr = arrival;
 				sendMessage({ "run_id": run_id, "ltg_event": { "event": "rfid_update", "payload": { "id": tag, "departure": departure, "arrival": arrival } } })
 			}
+		}
+	});
+	$("#kill_btn").click(function() {
+		if (typeof run_id !== "undefined" && typeof tag !== "undefined") {
+			sendMessage({ "run_id": run_id, "ltg_event": { "event": "kill_tag", "payload": { "id": tag } } })
+		}
+	});
+	$("#resurrect_btn").click(function() {
+		if (typeof run_id !== "undefined" && typeof tag !== "undefined") {
+			sendMessage({ "run_id": run_id, "ltg_event": { "event": "resurrect_tag", "payload": { "id": tag } } })
 		}
 	});
 
