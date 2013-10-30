@@ -54,9 +54,13 @@ $(	function() {
 			sendMessage({ "run_id": run_id, "ltg_event": { "event": "reset_bout", "payload": {  "habitat_configuration_id": current_habitat, "bout_id": current_bout  } } })
 	});
 	$("#move_btn").click(function() {
-		tag =  $('#tag_id').val()
+		tag = $('#tag_id').val()
 		if (typeof run_id !== "undefined" && typeof departure !== "undefined" && typeof arrival !== "undefined" && typeof tag !== "undefined") {
 			if (departure != arrival) {
+				var dep;
+				var arr;
+				if (departure=='null') dep = null; else dep = departure;
+				if (arrival=='null') arr = null; else arr = arrival;
 				sendMessage({ "run_id": run_id, "ltg_event": { "event": "rfid_update", "payload": { "id": tag, "departure": departure, "arrival": arrival } } })
 			}
 		}
@@ -65,46 +69,4 @@ $(	function() {
 	// Connect Websockets
 	connectWebsockets()
 });
-
-
-
-	// /**********/
-// 	/* MODELS */
-// 	/**********/
-// 	
-// 	var BoutModel = Backbone.Model.extend({
-// 		// Save the bout state locally		   
-// 		localStorage: new Backbone.LocalStorage("bout-backbone"),
-// 	});
-// 	
-// 	// The actual bout model instance
-// 	var bout_model = new BoutModel;
-// 	
-// 	/*********/
-// 	/* VIEWS */
-// 	/*********/
-// 	var BoutView = Backbone.View.extend({
-// 	    // The DOM events specific to an item.
-// 		events : {
-// 		    "click .dropdown-menu a"       : "updateModel"
-// 		},
-// 
-// 		updateModel : function(){
-// 		    //display selected text
-// 		    console.debug( $(this).text() );
-// 		}
-// 		
-// 	});
-// 	
-// 	var bout_view = new BoutView(el:);
-// 	
-
-
-	// $("#pause_bout").click(function() {
-// 		sendMessage({ "run_id": "5ag", "ltg_event": { "event": "pause_bout", "payload": {} } })
-// 	});
-// 	$("#resume_bout").click(function() {
-// 		sendMessage({ "run_id": "5ag", "ltg_event": { "event": "resume_bout", "payload": {} } })
-// 	});
-
 
