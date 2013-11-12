@@ -78,6 +78,16 @@ $(	function() {
 			sendMessage({ "run_id": run_id, "ltg_event": { "event": "resurrect_tag", "payload": { "id": tag } } })
 		}
 	});
+	
+	// Setup polling of state
+	setInterval(function(){
+		if (typeof run_id !== "undefined") {
+		    $.ajax({ url: "http://ltg.evl.uic.edu:9292/hunger-games-fall-13/state?selector=%7B%22run_id%22%3A%22"+ run_id + "%22%7D", success: function(data){
+		        	$("#state_label").text("Bout " + data[0].state.current_bout_id + " (" + data[0].state.current_habitat_configuration +") " + data[0].state.current_state)
+		    }, dataType: "json"});
+		}
+	}, 1000);
+
 
 	// Connect Websockets
 	connectWebsockets()
